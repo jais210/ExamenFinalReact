@@ -1,38 +1,5 @@
 import React, { Component } from 'react';
 
-class Model {
-  constructor() {
-     this.allComments = [{
-       name: "",
-       comment: ""
-      
-     }]
-        
-  }
-  addComment(txt,text) {
-    if(text!=''){
-      this.allComments.push({
-        name: txt,
-        comment: text,
-        id: this.allComments.length +1
-      });
-    }
-    this.allComments = '';
-    this.notify();
-  }
-  removeComment(txt,text) {
-    this.allComments = this.allComments.filter(item => item != txt);
-    this.allComments = this.allComments.filter(item => item != text);
-    this.notify();
-  }
-  
-  subscribe(render) {
-    this.render = render;
-  }
-  notify() {
-    this.render();
-  }
-}
 const Header = ({model})=>{
   return(
   <header>
@@ -63,7 +30,7 @@ const List = ({ model }) => {
   );
 }
 
-const Application = ({ model }) => {
+const App = ({ model }) => {
   return (
     <div>
       <Header model = {model}/>
@@ -77,13 +44,4 @@ const Application = ({ model }) => {
   );
 }
 
-let model = new Model();
-let render = () => {
-  ReactDOM.render(
-    <Application model={model} />,
-    document.getElementById('root')
-  );
-};
-
-model.subscribe(render);
-render(); 
+export default App;
