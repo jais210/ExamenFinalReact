@@ -1,2 +1,0 @@
-# ExamenFinalReact
-Prueba de fuego
