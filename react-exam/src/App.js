@@ -31,6 +31,8 @@ const List = ({ add, model }) => {
   );
 }
 
+
+
 const App = ({ model }) => {
   console.log(model);
   return (
@@ -40,8 +42,7 @@ const App = ({ model }) => {
         <h2>COMMENTS</h2>
         <ul>
           {model.allComments.map(item => <List key={item.id}  add ={item} model={model} />)}
-                
-          
+                      
         </ul>
       </div>
     </div>

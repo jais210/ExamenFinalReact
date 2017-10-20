@@ -6,12 +6,9 @@ import registerServiceWorker from './registerServiceWorker';
 
 class Model {
     constructor() {
-       this.allComments = [{
-         name: "",
-         comment: ""
-        
-       }]
-          
+      
+       this.allComments = [];
+       console.log(this.allComments)
     }
     addComment(txt,text) {
       if(text!=''){
@@ -29,6 +26,12 @@ class Model {
       this.allComments = this.allComments.filter(item=> item != txt);
       this.allComments = this.allComments.filter(item => item != text);
       this.notify();
+    }
+    addNumbComment(){
+      this.allComments.length +1;
+    }
+    restNumbComment(){
+      this.allComments.length -1;
     }
     
     subscribe(render) {
