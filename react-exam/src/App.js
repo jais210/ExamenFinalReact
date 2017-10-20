@@ -20,24 +20,28 @@ const Header = ({model})=>{
 
 </header>)
 }
-const List = ({ model }) => {
+const List = ({ add, model }) => {
+  console.log(add)
   return (
-    <li>
-      {model.allComments.name}
-      {model.allComments.comment}
-      <button onClick={() => model.removeComment()}>remove</button>
+    <li >
+      {add.name}
+      {add.comment}
+      <button onClick={() => model.removeComment(add)}>remove</button>
     </li>
   );
 }
 
 const App = ({ model }) => {
+  console.log(model);
   return (
     <div>
       <Header model = {model}/>
-      <div className="main">
+      <div>
         <h2>COMMENTS</h2>
         <ul>
-          {model.allComments.map(item => <List key={item.id}  model={model} />)}
+          {model.allComments.map(item => <List key={item.id}  add ={item} model={model} />)}
+                
+          
         </ul>
       </div>
     </div>

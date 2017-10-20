@@ -21,11 +21,12 @@ class Model {
           id: this.allComments.length +1
         });
       }
-      this.allComments = '';
+      this.allComments.name.value = "";
+      this.allComments.comment.value = "";
       this.notify();
     }
     removeComment(txt,text) {
-      this.allComments = this.allComments.filter(item => item != txt);
+      this.allComments = this.allComments.filter(item=> item != txt);
       this.allComments = this.allComments.filter(item => item != text);
       this.notify();
     }
